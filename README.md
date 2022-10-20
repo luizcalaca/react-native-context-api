@@ -11,3 +11,7 @@ That a simple example using react native with context api for global state.
 ```bash
   npm run ios
 ```
+
+## Screenshot
+
+![image](simulator_screenshot.png)
