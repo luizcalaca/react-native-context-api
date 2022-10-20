@@ -1,5 +1,6 @@
 import React, {createContext, useState} from 'react'
 import { useNavigation } from '@react-navigation/native'
+import { Alert } from 'react-native'
 
 export const AuthContext = createContext({})
 
@@ -13,9 +14,10 @@ function AuthProvider({children}) {
                 email: email,
                 password: password
             })
+            navigation.navigate("Home")
+            return
         }
-
-        navigation.navigate("Home")
+        Alert.alert("Username or password are invalid")
     }
     return(
         <AuthContext.Provider value={{name: "Calaça", signIn, user}}>
