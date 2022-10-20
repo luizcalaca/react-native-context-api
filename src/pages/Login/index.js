@@ -1,19 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {AuthContext} from '../../contexts/auth'
 
 export default function Login() {
  const [email, setEmail] = useState('');
  const [password, setPassword] = useState('');
 
- const navigation = useNavigation();
+ const {signIn} = useContext(AuthContext)
 
  function handleLogin(){
-  if(email == "calaca@gmail.com" && password === '1234'){
-    navigation.navigate("Home")
-  }else{
-    Alert.alert("Username or password are invalid")
-  }
+  signIn(email, password)
  }
 
  return (
@@ -24,14 +20,14 @@ export default function Login() {
         style={styles.input}
         value={email}
         onChangeText={(text) => setEmail(text)}
-        placeholder="Digite seu email"
+        placeholder="email"
      />
 
      <TextInput
         style={styles.input}
         value={password}
         onChangeText={(text) => setPassword(text)}
-        placeholder="Digite sua senha"
+        placeholder="password"
      />
 
      <TouchableOpacity style={styles.button} onPress={handleLogin}>

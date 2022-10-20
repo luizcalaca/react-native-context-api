@@ -11,8 +11,8 @@ export default function Home() {
      <Text>Pagina Home</Text>
 
      <Button 
-     title="Acessar pedidos"
-     onPress={() => navigation.navigate("Pedidos")}
+     title="Access Order"
+     onPress={() => navigation.navigate("Order")}
      />
    </View>
   );

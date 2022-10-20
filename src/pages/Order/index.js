@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import {AuthContext} from '../../contexts/auth'
 
-export default function Pedidos() {
+export default function Order() {
+
+  const {name, user} = useContext(AuthContext)
  return (
    <View style={styles.container}>
-     <Text>Pagina Pedidos</Text>
+     <Text>Order Page</Text>
+     <Text>Name: {name}</Text>
+     <Text>E-mail: {user.email}</Text>
    </View>
   );
 }
